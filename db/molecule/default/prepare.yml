@@ -1,7 +1,7 @@
 ---
 - name: Prepare
   hosts: all
-  gather_facts: false
+  gather_facts: true
   vars:
     ssh_port: 22
     ssh_user: "{{ lookup('env', 'USER') }}"

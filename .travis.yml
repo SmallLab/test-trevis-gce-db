@@ -18,11 +18,11 @@ script:
 after_script:
 - molecule destroy
 before_install:
-- openssl aes-256-cbc -K $encrypted_f5d22dcaf8cf_key -iv $encrypted_f5d22dcaf8cf_iv
-  -in creds.tar.gz.enc -out creds.tar.gz -d
+- openssl aes-256-cbc -K $encrypted_f5d22dcaf8cf_key -iv $encrypted_f5d22dcaf8cf_iv -in creds.tar.gz.enc -out creds.tar.gz -d
 - tar xzvf creds.tar.gz
 - mv google_compute_engine /home/travis/.ssh/
 - chmod 0600 /home/travis/.ssh/google_compute_engine
+- cp /home/travis/.ssh/google_compute_engine /home/travis/.ssh/id_rsa
 notifications:
   slack:
     secure: Io6nqIw5SfYMo5Yi5cKigO6JMqLiHY9j/1wlZVv+4asqcaEf7JXP6KX9EKbX+vhbVsX2kpQmChPN1jSOmXa28P0DkfUu0PhBbnW0IpNZLO/OxdBkFZ8i9QUcX9x19tNRhY4qrAwlaYLGdRbnbOFgfgBIPPJsS7MdKoNchcUawvOmHpswAU5p1QJaCNK8eb0TvouZrOC+GU6OTwBenaNp/loyaYYtcQN1LeC+ZxtQAacfWOf3z34okJnoAt7QJCqmX23y2E/Ed+n4HuNJY7k5+y4k1hKL/rbM+5ac8GLskNmMavHbpQHwbRPFNGv22KCLeyR7kyxO6S2g0KMfku0wvrciZccjOwXPFo4X/1KNW+DIwJ7lUvl5oieZWOx4AQF9pHoOjqHs5nKbGTI2DzXQeWnLPZwuS8bf/r9xvY17e1CAY4VSE7FTYjyQyDlMbi1Toglj8iepEbmlb9zJ+Kkm3TLs+xRaSGYDnUs4HKq/sKlkmQnBIW7muZRATBvmwEr+Rpl9jTOLm1Ti8YfBOQBi22LDnUE10ZvYd2ORDRjQ7EqCzjPuNJqjLF1ha1D+q1NpVatc7aWY3zYBF4uzMjOorfOfjTiIilJkayKeTPgSrVxFAE2omu02bk5AbgBg/qlQzwFKAffKMS/YfIWpqm8ZCWRo1Ww8CVTlcpDZA95XI38=
